@@ -1,21 +1,114 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: rgb(255, 255, 255);
+  --foreground: rgb(2, 8, 23);
+  --card: rgb(255, 255, 255);
+  --card-foreground: rgb(2, 8, 23);
+  --popover: rgb(255, 255, 255);
+  --popover-foreground: rgb(2, 8, 23);
+  --primary: rgb(15, 23, 42);
+  --primary-foreground: rgb(248, 250, 252);
+  --secondary: rgb(241, 245, 249);
+  --secondary-foreground: rgb(15, 23, 42);
+  --muted: rgb(241, 245, 249);
+  --muted-foreground: rgb(100, 116, 139);
+  --accent: rgb(241, 245, 249);
+  --accent-foreground: rgb(15, 23, 42);
+  --destructive: rgb(239, 68, 68);
+  --destructive-foreground: rgb(248, 250, 252);
+  --success: rgb(34, 197, 94);
+  --success-foreground: rgb(255, 255, 255);
+  --border: rgb(226, 232, 240);
+  --input: rgb(226, 232, 240);
+  --ring: rgb(2, 8, 23);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: rgb(2, 8, 23);
+  --foreground: rgb(248, 250, 252);
+  --card: rgb(2, 8, 23);
+  --card-foreground: rgb(248, 250, 252);
+  --popover: rgb(2, 8, 23);
+  --popover-foreground: rgb(248, 250, 252);
+  --primary: rgb(248, 250, 252);
+  --primary-foreground: rgb(15, 23, 42);
+  --secondary: rgb(30, 41, 59);
+  --secondary-foreground: rgb(248, 250, 252);
+  --muted: rgb(30, 41, 59);
+  --muted-foreground: rgb(148, 163, 184);
+  --accent: rgb(30, 41, 59);
+  --accent-foreground: rgb(248, 250, 252);
+  --destructive: rgb(127, 29, 29);
+  --destructive-foreground: rgb(248, 250, 252);
+  --success: rgb(22, 163, 74);
+  --success-foreground: rgb(255, 255, 255);
+  --border: rgb(30, 41, 59);
+  --input: rgb(30, 41, 59);
+  --ring: rgb(203, 213, 225);
 }
 
 @theme inline {
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (min-width: 1400px) {
+    max-width: 1400px;
   }
 }
 
