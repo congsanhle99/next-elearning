@@ -3,6 +3,7 @@ import { SectionTitle } from "@/components/section-title";
 import Support from "@/components/support";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { formatPrice } from "@/lib/formatPrice";
+import { getLocale } from "@/lib/get-locale";
 import { cn } from "@/lib/utils";
 import { BookOpen } from "lucide-react";
 import { ArrowRightIcon } from "lucide-react";
@@ -97,7 +98,9 @@ const courses = [
     thumbnail: "/assets/images/categories/music.jpg",
   },
 ];
-const HomePage = () => {
+const HomePage = async () => {
+  const locale = await getLocale();
+
   return (
     <>
       <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32 grainy">
@@ -196,7 +199,7 @@ const HomePage = () => {
                     /> */}
 
                     <div className="flex items-center justify-between mt-4">
-                      <p className="text-md md:text-sm font-medium text-slate-700">{formatPrice(49)}</p>
+                      <p className="text-md md:text-sm font-medium text-slate-700">{formatPrice(49, locale)}</p>
 
                       <Button variant="ghost" className="text-xs text-sky-700 h-7 gap-1">
                         Enroll
