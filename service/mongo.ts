@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export const dbConnect = async () => {
+export const dbConnect = async (): Promise<typeof mongoose | undefined> => {
   try {
     const conn = await mongoose.connect(String(process.env.MONGODB_CONNECTION_STRING));
     return conn;
